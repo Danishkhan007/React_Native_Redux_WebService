@@ -16,7 +16,7 @@ import {
     Thumbnail} from 'native-base';
 import {connect} from 'react-redux';
 
-class GetList extends Component {
+class NewsList extends Component {
 
     //----------------------c
     renderURLImage(url) {
@@ -53,6 +53,11 @@ class GetList extends Component {
             <Text note> {publishedAt} </Text>
         );
     }
+
+    newsItemPressed(url){
+        this.props.navigation.navigate('NewsDetail', {url});
+
+    }
      
 
     render() {
@@ -66,7 +71,10 @@ class GetList extends Component {
                             const { name } = source;
                             debugger;
                             return (
-                                <ListItem avatar>
+                                <ListItem
+                                avatar
+                                onPress={() => this.newsItemPressed(url)}
+                                >
                                     <Left>
                                         {this.renderURLImage(urlToImage)}
                                     </Left>
@@ -108,4 +116,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default connect(MapStateToProps)(GetList);
+export default connect(MapStateToProps)(NewsList);

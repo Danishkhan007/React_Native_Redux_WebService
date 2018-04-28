@@ -10,7 +10,7 @@ import { Container, Content, Text, List, ListItem, Button, Label } from 'native-
 import DataManager from '../../../datamanager/DataManager';
 import WebService from '../../../services/web_service_handler/WebService';
 
-const routes = ['Home', 'Profile', 'Chat', 'ResponseList', 'Contact Us', 'About Us'];
+const routes = ['Home', 'Profile', 'Chat', 'News', 'Contact Us', 'About Us'];
 export default class SideBar extends Component {
 
   constructor() {

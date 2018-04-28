@@ -79,7 +79,7 @@ class HomeScreen extends Component {
   renderGetResult() {
     debugger;
     if (this.props.data != null) {
-      this.props.navigation.navigate('ResponseList')
+      this.props.navigation.navigate('News')
     } 
   }
 

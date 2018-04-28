@@ -9,7 +9,8 @@ import { DrawerNavigator, StackNavigator, TabNavigator } from 'react-navigation'
 import HomeScreen from '../component/container/homescreen/HomeScreen';
 import SideBar from '../component/container/sidebar/SideBar';
 import LucyChat from '../component/container/chatscreen/LucyChat';
-import ResponseList from '../component/container/listscreen/ResponseList';
+import NewsList from '../component/container/newsscreen/NewsList';
+import NewsDetail from '../component/container/newsscreen/NewsDetail';
 import {Profile, EditScreenOne, EditScreenTwo} from '../component/container/profilescreen';
 import { Button, Text, Icon, Footer, FooterTab } from 'native-base';
 
@@ -74,14 +75,20 @@ export const MainScreenNavigator = TabNavigator(
     }
   );
 
-  export const ListScreenStackNav = StackNavigator (
+  export const NewsScreenStackNav = StackNavigator (
     {
-        GetResponseList: {
-            screen: ResponseList,
+        News: {
+            screen: NewsList,
             navigationOptions: {
               title: 'Top Headlines'
             },
-        }
+        },
+       NewsDetail: {
+         screen: NewsDetail,
+         navigationOptions:{
+            title: 'News Details'
+         },
+       }
     },
   );
 
@@ -98,8 +105,8 @@ export const HomeScreenDrawerNav = DrawerNavigator(
         Profile: { 
             screen: ProfileScreenStackNav 
             },
-        ResponseList: {
-            screen: ListScreenStackNav
+        News: {
+            screen: NewsScreenStackNav
         },
     },
     {
