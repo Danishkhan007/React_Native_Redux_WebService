@@ -13,7 +13,7 @@ import {
     Button, 
     Text } from 'native-base';
 
-export default class EditScreenOne extends React.Component {
+class EditScreenOne extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     header: (
       <Header>
@@ -36,7 +36,7 @@ export default class EditScreenOne extends React.Component {
           <Card>
             <CardItem>
               <Icon active name="paper-plane" />
-              <Text>Edit Screen 2</Text>
+              <Text>Edit Screen 1</Text>
               <Right>
                 <Icon name="close" />
               </Right>
@@ -54,3 +54,5 @@ export default class EditScreenOne extends React.Component {
     );
   }
 }
+
+export {EditScreenOne};

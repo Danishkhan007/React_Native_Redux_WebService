@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Alert, View } from 'react-native';
 import { connect } from 'react-redux';
 import { reachability, getRequestAction } from '../../../actions/WebServiceActions';
-import { DUMMY_GET_URL, DATA_MANAGER } from '../../../appConstant/Constant';
+import { DUMMY_TEST_URL, DATA_MANAGER } from '../../../appConstant/Constant';
 import 
 { Container,
     Header, 
@@ -51,9 +51,9 @@ class HomeScreen extends Component {
     debugger;
   
     if (this.props.isConnected) {
-      //this.dataManager.getRequestService(DUMMY_GET_URL);
+      //this.dataManager.getRequestService(DUMMY_TEST_URL);
       debugger;
-      this.props.getRequestAction(DUMMY_GET_URL);
+      this.props.getRequestAction(DUMMY_TEST_URL);
     } else {
       Alert.alert('Check you internet connectivity..Its disconnected');
     }
@@ -78,8 +78,8 @@ class HomeScreen extends Component {
 
   renderGetResult() {
     debugger;
-    if (this.props.data != null && this.props.data.title != null) {
-      <Text> {this.props.data.title} </Text>
+    if (this.props.data != null) {
+      this.props.navigation.navigate('ResponseList')
     } 
   }
 
@@ -167,7 +167,7 @@ class HomeScreen extends Component {
           </Button>
 
           <View>
-            {/* {this.renderGetResult()} */}
+            {this.renderGetResult()}
           </View>
 
         </Content>
@@ -192,11 +192,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   debugger;
-  return {
-    isConnected: state.web.isConnected,
-    value: state.web.isConnected? 'True': 'False',
-    data: state.web.data
-  };
+   const { isConnected, value, data } = state.web;
+  return{ isConnected, value, data}
 };
 
 export default connect(mapStateToProps, { reachability, getRequestAction })(HomeScreen);

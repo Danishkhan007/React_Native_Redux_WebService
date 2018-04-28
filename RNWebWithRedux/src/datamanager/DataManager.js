@@ -41,7 +41,7 @@ import { DATA_MANAGER } from '../appConstant/Constant';
     }
 
     //GET REQUEST DATAMANAGER WRAPPER FOR FURTHER BUSINESS LOGIC
-    getRequestService(url: String, ){
+    getRequestService(url: String ){
         debugger;
         return new Promise(
             function(success, fail) {
@@ -57,7 +57,8 @@ import { DATA_MANAGER } from '../appConstant/Constant';
                 to action like:
                 filter(serviceResponse) or parse(ServiceResponse)
                 result of which will be sent back.*/
-                success(serviceResponse);
+                const {articles} = serviceResponse;
+                success(articles);
             })
             .catch(function(error){
                 debugger;

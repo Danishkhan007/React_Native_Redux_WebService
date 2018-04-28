@@ -1,7 +1,13 @@
+/*
+ * @Author: Mohd Danish Khan 
+ * @Date:2018-04-25
+ *  
+ */
+
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import ConfigureStore from './store/ConfigureStore';
-import HomeScreen from './component/native_navigation/homescreen/index';
+import {HomeScreenDrawerNav} from './config/Router'
 
 class App extends Component {
 render() {
@@ -11,7 +17,7 @@ render() {
         get access to store grab all state and pass */
     return (
         <Provider store={store}>
-            <HomeScreen />
+            <HomeScreenDrawerNav />
          </Provider>
       );
     }

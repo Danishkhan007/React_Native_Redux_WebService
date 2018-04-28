@@ -1,10 +1,16 @@
+/*
+ * @Author: Mohd Danish Khan 
+ * @Date:2018-04-26
+ *  
+ */
+
 import React, { Component } from 'react';
 import { Image, Alert } from 'react-native';
 import { Container, Content, Text, List, ListItem, Button, Label } from 'native-base';
 import DataManager from '../../../datamanager/DataManager';
 import WebService from '../../../services/web_service_handler/WebService';
 
-const routes = ['Home', 'Messages', 'News', 'Settings', 'Contact Us', 'About Us'];
+const routes = ['Home', 'Profile', 'Chat', 'ResponseList', 'Contact Us', 'About Us'];
 export default class SideBar extends Component {
 
   constructor() {

@@ -58,3 +58,6 @@ Profile.navigationOptions = ({ navigation }) => ({
     </Header>
   )
 });
+
+export {Profile};
+
