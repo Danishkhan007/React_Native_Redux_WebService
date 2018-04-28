@@ -1,3 +1,9 @@
+/*
+ * @Author: Mohd Danish Khan 
+ * @Date:2018-04-24
+ *  
+ */
+
 import { 
         REACHABILTY_ACTION, 
         SPINNER_LOADING_ACTION,

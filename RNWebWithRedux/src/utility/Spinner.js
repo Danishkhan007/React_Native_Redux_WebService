@@ -1,3 +1,9 @@
+/*
+ * @Author: Mohd Danish Khan 
+ * @Date:2018-04-25
+ *  
+ */
+
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 

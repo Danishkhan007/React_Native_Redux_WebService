@@ -1,3 +1,9 @@
+/*
+ * @Author: Mohd Danish Khan 
+ * @Date:2018-04-26
+ *  
+ */
+
 import React from 'react';
 import { DrawerNavigator } from 'react-navigation';
 import HomeScreen from './HomeScreen.js';

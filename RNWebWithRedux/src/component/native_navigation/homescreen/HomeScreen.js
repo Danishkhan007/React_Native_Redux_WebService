@@ -1,3 +1,9 @@
+/*
+ * @Author: Mohd Danish Khan 
+ * @Date:2018-04-26
+ *  
+ */
+
 import React, { Component } from 'react';
 import { StyleSheet, Alert, View } from 'react-native';
 import { connect } from 'react-redux';
