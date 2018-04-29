@@ -19,10 +19,52 @@ import {
     Body,
     Thumbnail} from 'native-base';
 import {connect} from 'react-redux';
+import { getRequestThunk } from '../../../actions/WebServiceActions';
+import { Spinner } from '../../../utility/Spinner'
+
 
 class NewsList extends Component {
 
-    //----------------------c
+    constructor() {
+        super();
+        this.state = {
+            data: []
+        }
+
+    }
+    //-------------------methods to render data --------------//
+
+    renderList() {
+        if (this.props.loading) {
+            return <Spinner size="large" />;
+        }
+    
+        return (
+            <List 
+                    dataArray = {this.props.data}
+                    renderRow ={(RowData, SectionID, rowID, higlightRow) => {
+                        const { source, author, title, description, url, urlToImage, publishedAt } = RowData;
+                        const { name } = source;
+                        debugger;
+                        return (
+                            <ListItem
+                                    avatar
+                                    onPress={() => this.newsItemPressed(url)}
+                            >
+                                <Left>
+                                    {this.renderURLImage(urlToImage)}
+                                </Left>
+                                <Body>
+                                    {this.renderTitle(title)}
+                                    {this.renderDescription(description)}
+                                </Body>
+                            </ListItem>
+                            )
+             }}>
+            </List>
+        );
+    }
+
     renderURLImage(url) {
         if (url != null) 
          return (
@@ -60,39 +102,15 @@ class NewsList extends Component {
 
     newsItemPressed(url){
         this.props.navigation.navigate('NewsDetail', {url});
-
     }
 
     render() {
         return(
             <Container>
                 <Content>
-                    <List 
-                        dataArray = {this.props.dataArray}
-                        renderRow ={(RowData, SectionID, rowID, higlightRow) => {
-                            const { source, author, title, description, url, urlToImage, publishedAt } = RowData;
-                            const { name } = source;
-                            debugger;
-                            return (
-                                <ListItem
-                                avatar
-                                onPress={() => this.newsItemPressed(url)}
-                                >
-                                    <Left>
-                                        {this.renderURLImage(urlToImage)}
-                                    </Left>
-                                    <Body>
-
-                                        {this.renderTitle(title)}
-                                        {this.renderDescription(description)}
-                                    </Body>
-                                </ListItem>
-                            )
-                        }}>
-                    </List>
+                {this.renderList()}
                 </Content>
             </Container>
-                
         );
     }
 };
@@ -106,7 +124,7 @@ NewsList.navigationOptions = ({ navigation }) => ({
           </Button>
         </Left>
         <Body>
-          <Title>NEWS: TOP STORIES</Title>
+          <Title>HEADLINES</Title>
         </Body>
         <Right />
       </Header>
@@ -114,11 +132,11 @@ NewsList.navigationOptions = ({ navigation }) => ({
   });
 
 
+
 const MapStateToProps = state => {
     debugger;
-    
-    return { dataArray : state.web.data };
-    
+    const {data, loading } = state.web;
+    return { data, loading };
 }
 
 const styles = StyleSheet.create({
@@ -135,4 +153,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default connect(MapStateToProps)(NewsList);
+export default connect(MapStateToProps, { getRequestThunk })(NewsList);

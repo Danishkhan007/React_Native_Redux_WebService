@@ -10,7 +10,7 @@ import { Container, Content, Text, List, ListItem, Button, Label } from 'native-
 import DataManager from '../../../datamanager/DataManager';
 import WebService from '../../../services/web_service_handler/WebService';
 
-const routes = ['Home', 'Chat', 'News', 'Contact Us', 'About Us'];
+const routes = ['Home', 'News', 'Contact Us', 'About Us'];
 export default class SideBar extends Component {
 
   constructor() {
@@ -41,6 +41,7 @@ export default class SideBar extends Component {
           <List
             dataArray={routes}
             renderRow={(rowData, sectionID, rowID, higlightRow) => {
+              debugger;
               return (
                 <ListItem
                   button

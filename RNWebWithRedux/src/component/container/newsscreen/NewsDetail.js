@@ -21,7 +21,7 @@ class NewsDetails extends Component {
               </Button>
             </Left>
             <Body>
-              <Title>EditScreenOne</Title>
+              <Title>Story</Title>
             </Body>
             <Right />
           </Header>
