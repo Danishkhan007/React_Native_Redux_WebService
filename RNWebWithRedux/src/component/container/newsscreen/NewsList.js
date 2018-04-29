@@ -34,9 +34,12 @@ class NewsList extends Component {
     }
     //-------------------methods to render data --------------//
 
+    /*this method will load the spinner if data is not availabe, and then loads the
+    data as it is fetched from redux store*/
     renderList() {
         if (this.props.loading) {
-            return <Spinner size="large" />;
+            return <Spinner size="large"
+                    />
         }
     
         return (
@@ -65,12 +68,14 @@ class NewsList extends Component {
         );
     }
 
+    //-----------------------Check for null values -----------------------------//
     renderURLImage(url) {
         if (url != null) 
          return (
          <Thumbnail source={{ uri: url}} />
         );
     }
+
 
     renderSourceName(name) {
         if (name != null)
@@ -100,10 +105,12 @@ class NewsList extends Component {
         );
     }
 
+    // to navigate to news details with parameter url
     newsItemPressed(url){
         this.props.navigation.navigate('NewsDetail', {url});
     }
 
+    //-------------
     render() {
         return(
             <Container>

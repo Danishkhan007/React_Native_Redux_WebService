@@ -71,8 +71,9 @@ class HomeScreen extends Component {
             // onPress={() => this.props.navigation.navigate('Chat')}
             onPress={this.onGetRequestPressed.bind(this)}
       >
-      <Text>TOP HEADLINES</Text>
+      <Text>BUSINESS HEADLINES</Text>
       </Button>
+
     );
   }
 

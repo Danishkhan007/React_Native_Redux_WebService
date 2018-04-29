@@ -26,7 +26,8 @@ const styles = {
         flex: 1,
         // for centering the spinner.
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     }
 };
 
