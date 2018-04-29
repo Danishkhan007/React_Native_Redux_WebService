@@ -10,7 +10,11 @@ import {
     Container, 
     Content, List, 
     ListItem, 
+    Header,
+    Button,
+    Icon,
     Left, 
+    Title,
     Right,
     Body,
     Thumbnail} from 'native-base';
@@ -58,7 +62,6 @@ class NewsList extends Component {
         this.props.navigation.navigate('NewsDetail', {url});
 
     }
-     
 
     render() {
         return(
@@ -93,6 +96,22 @@ class NewsList extends Component {
         );
     }
 };
+
+NewsList.navigationOptions = ({ navigation }) => ({
+    header: (
+      <Header>
+        <Left>
+          <Button transparent onPress={() => navigation.navigate('DrawerOpen')}>
+            <Icon name="menu" />
+          </Button>
+        </Left>
+        <Body>
+          <Title>NEWS: TOP STORIES</Title>
+        </Body>
+        <Right />
+      </Header>
+    )
+  });
 
 
 const MapStateToProps = state => {

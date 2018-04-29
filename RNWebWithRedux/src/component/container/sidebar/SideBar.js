@@ -10,7 +10,7 @@ import { Container, Content, Text, List, ListItem, Button, Label } from 'native-
 import DataManager from '../../../datamanager/DataManager';
 import WebService from '../../../services/web_service_handler/WebService';
 
-const routes = ['Home', 'Profile', 'Chat', 'News', 'Contact Us', 'About Us'];
+const routes = ['Home', 'Chat', 'News', 'Contact Us', 'About Us'];
 export default class SideBar extends Component {
 
   constructor() {
@@ -29,21 +29,14 @@ export default class SideBar extends Component {
       <Container>
             <Image
                 source={{
-                uri: 'https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/drawer-cover.png'
+                uri: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Al_Jazeera_English_Doha_Newsroom_1.jpg'
                 }}
                 style={{
-                height: 120,
+                height: 180,
                 alignSelf: 'stretch',
                 justifyContent: 'center',
                 alignItems: 'center'
                 }}
-            />
-            <Image
-              square
-              style={{ height: 80, width: 70 }}
-              source={{
-                uri: 'https://github.com/GeekyAnts/NativeBase-KitchenSink/raw/react-navigation/img/logo.png'
-              }}
             />
           <List
             dataArray={routes}

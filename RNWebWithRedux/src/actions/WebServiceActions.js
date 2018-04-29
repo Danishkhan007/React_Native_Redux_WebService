@@ -11,6 +11,7 @@ import {
         REQUEST_FAIL_ACTION, 
         DATA_MANAGER,
     } from '../appConstant/Constant';
+import WebService from '../services/web_service_handler/WebService';
 
 
 //-----------Action to check connectivity-------------------//
@@ -22,9 +23,9 @@ export const reachability = (isConnected) => {
     };
 };
 
-//-------------------------Get Request Action-------------------------------------------------//
+//-------------------------Get Request Thunk-------------------------------------------------//
 
-export const getRequestAction = (url: String, header: Object = '', parameter: Object = '') => {
+export const getRequestThunk = (url: String, header: Object = '', parameter: Object = '') => {
     debugger;
     //dispatch a action to show loading spinner while data is being fetched.
     return (dispatch) => {
@@ -39,8 +40,8 @@ export const getRequestAction = (url: String, header: Object = '', parameter: Ob
     }
 };
 
-//----------------------- Post Request action -------------------------------------------------//
-export const postRequestAction = (url: String, header: Object = '', parameter: Object = '') => {
+//----------------------- Post Request Thunk -------------------------------------------------//
+export const postRequestThunk = (url: String, header: Object = '', parameter: Object = '') => {
     debugger;
     return (dispatch) => {
         dispatch({ type: SPINNER_LOADING_ACTION });

@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Alert, View } from 'react-native';
 import { connect } from 'react-redux';
-import { reachability, getRequestAction } from '../../../actions/WebServiceActions';
+import { reachability, getRequestThunk } from '../../../actions/WebServiceActions';
 import { DUMMY_TEST_URL, DATA_MANAGER } from '../../../appConstant/Constant';
 import 
 { Container,
@@ -29,7 +29,8 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isConnected: false
+      isConnected: false,
+      value: 'False'
     };
     debugger;
 
@@ -53,7 +54,7 @@ class HomeScreen extends Component {
     if (this.props.isConnected) {
       //this.dataManager.getRequestService(DUMMY_TEST_URL);
       debugger;
-      this.props.getRequestAction(DUMMY_TEST_URL);
+      this.props.getRequestThunk(DUMMY_TEST_URL);
     } else {
       Alert.alert('Check you internet connectivity..Its disconnected');
     }
@@ -71,7 +72,7 @@ class HomeScreen extends Component {
             // onPress={() => this.props.navigation.navigate('Chat')}
             onPress={this.onGetRequestPressed.bind(this)}
       >
-      <Text>GET API</Text>
+      <Text>TOP HEADLINES</Text>
       </Button>
     );
   }
@@ -103,31 +104,14 @@ class HomeScreen extends Component {
               <Icon name="menu" />
             </Button>
           </Left>
-
-          {/* <Body>
-            <Title>HomeScreen</Title>
-          </Body> */}
-          <Right>
-            <Label
-              transparent
-              onPress={() => this.props.navigation.navigate('DrawerOpen')} 
-            >
-              Language
-            </Label>
-          </Right>
         </Header>
         
         <Content padder>
-        {/* <Text style={styles.welcome}>
-            {this.props.value}
-          </Text>
-          <Button onPress={this.onButtonPress.bind(this)} title='Click'>
-           Click It
-          </Button> */}
           <Card>
             <CardItem>
               <Body>
-                <Text>WELCOME TO SPOTT!</Text>
+                <Text>Welcome to NewsWorld!</Text>
+                <Text note>This app make use of newsapi.org for news updates.</Text>
                 <Text> Network is connected: {this.props.value} </Text>
               </Body>
             </CardItem>
@@ -139,21 +123,7 @@ class HomeScreen extends Component {
           >
             <Text>Chat With People</Text>
           </Button>
-          <Button 
-            full rounded primary
-              style={{ marginTop: 10 }}
-              onPress={() => this.props.navigation.navigate('Profile')}
-          >
-            <Text>Goto Profiles</Text>
-          </Button>
-
-          {/* <Text style={styles.welcome}>
-          {this.props.isConnected}
-          </Text>
-          <Button onPress={this.onButtonPress.bind(this)} title='Click'>
-           Click It
-          </Button> */}
-
+  
           <View>
             {this.renderGetRequestButton()}
           </View>
@@ -192,9 +162,10 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
   debugger;
-   const { isConnected, value, data } = state.web;
-  return{ isConnected, value, data}
-};
+   const { isConnected, data } = state.web;
+   value = isConnected? 'True': 'False';
+  return{ isConnected, value, data }
+  };
 
-export default connect(mapStateToProps, { reachability, getRequestAction })(HomeScreen);
+export default connect(mapStateToProps, { reachability, getRequestThunk })(HomeScreen);
 

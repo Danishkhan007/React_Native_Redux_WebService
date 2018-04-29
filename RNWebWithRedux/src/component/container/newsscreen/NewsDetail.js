@@ -1,7 +1,33 @@
 import React, { Component } from 'react';
 import {WebView} from 'react-native';
+import { 
+    Header, 
+    Left, 
+    Button, 
+    Right, 
+    Body,
+    Title,
+    Icon,
+    Titile } from 'native-base';
 
 class NewsDetails extends Component {
+
+    static navigationOptions = ({ navigation }) => ({
+        header: (
+          <Header>
+            <Left>
+              <Button transparent onPress={() => navigation.goBack()}>
+                <Icon name="arrow-back" />
+              </Button>
+            </Left>
+            <Body>
+              <Title>EditScreenOne</Title>
+            </Body>
+            <Right />
+          </Header>
+        )
+      });
+
     render() {
         const {params} = this.props.navigation.state;
         const url = params? params.url: '';

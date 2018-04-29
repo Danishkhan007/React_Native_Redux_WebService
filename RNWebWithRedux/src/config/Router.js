@@ -11,23 +11,7 @@ import SideBar from '../component/container/sidebar/SideBar';
 import LucyChat from '../component/container/chatscreen/LucyChat';
 import NewsList from '../component/container/newsscreen/NewsList';
 import NewsDetail from '../component/container/newsscreen/NewsDetail';
-import {Profile, EditScreenOne, EditScreenTwo} from '../component/container/profilescreen';
 import { Button, Text, Icon, Footer, FooterTab } from 'native-base';
-
-//-------------------Example of StackNavigation -------------------------//
-
-
-export const ProfileScreenStackNav = StackNavigator({
-  Profile: { 
-      screen: Profile 
-    },
-  EditScreenOne: { 
-      screen: EditScreenOne 
-    },
-  EditScreenTwo: { 
-      screen: EditScreenTwo 
-    }
-});
 
 //-------------------Example of TabNavigator -------------------------//
 
@@ -35,8 +19,7 @@ export const ProfileScreenStackNav = StackNavigator({
 export const MainScreenNavigator = TabNavigator(
     {
       LucyChat: { screen: LucyChat },
-      // JadeChat: { screen: JadeChat },
-      // NineChat: { screen: NineChat }
+      
     },
     {
       tabBarPosition: 'bottom',
@@ -97,17 +80,17 @@ export const MainScreenNavigator = TabNavigator(
 export const HomeScreenDrawerNav = DrawerNavigator(
     {
         Home: { 
-            screen: HomeScreen 
+            screen: HomeScreen,
+            navigationOptions: {
+              title: 'News World'
+              }
             },
         Chat: { 
             screen: MainScreenNavigator 
             },
-        Profile: { 
-            screen: ProfileScreenStackNav 
-            },
         News: {
             screen: NewsScreenStackNav
-        },
+        }
     },
     {
       contentComponent: props => <SideBar {...props} />
