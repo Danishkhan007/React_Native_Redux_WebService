@@ -13,7 +13,7 @@ import {
      } from '../appConstant/Constant';
 
 const INITIAL_STATE = {
-    data: null,
+    data: [],
     isConnected: true,
     loading: false,
     error: ''

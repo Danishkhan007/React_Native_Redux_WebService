@@ -10,7 +10,7 @@ import { Container, Content, Text, List, ListItem, Button, Label } from 'native-
 import DataManager from '../../../datamanager/DataManager';
 import WebService from '../../../services/web_service_handler/WebService';
 
-const routes = ['Home', 'News', 'Contact Us', 'About Us'];
+const routes = ['Home', 'News', 'Gallery', 'About Us'];
 export default class SideBar extends Component {
 
   constructor() {
@@ -55,9 +55,7 @@ export default class SideBar extends Component {
           />
               debugger;
              <Button rounded warning >
-               <Label style={styles.logoutButtonSytyle}> 
-                Logout
-               </Label>
+             <Text style={styles.logoutButtonSytyle}>LOG OUT</Text>
             </Button>
       </Container> 
     );
@@ -66,7 +64,10 @@ export default class SideBar extends Component {
 
       const styles = {
         logoutButtonSytyle: {
-            flex: 1
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            textAlign: 'center'   
         }
     };
 

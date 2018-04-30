@@ -66,7 +66,7 @@ class HomeScreen extends Component {
   renderGetRequestButton() {
     return (
       <Button 
-            full rounded dark
+            full rounded primary
             style={{ marginTop: 10 }}
             // onPress={() => this.props.navigation.navigate('Chat')}
             onPress={this.onGetRequestPressed.bind(this)}

@@ -10,6 +10,7 @@ import HomeScreen from '../component/container/homescreen/HomeScreen';
 import SideBar from '../component/container/sidebar/SideBar';
 import NewsList from '../component/container/newsscreen/NewsList';
 import NewsDetail from '../component/container/newsscreen/NewsDetail';
+import { Business, Sports, Film} from '../component/container/gallery';
 import { Button, Text, Icon, Footer, FooterTab } from 'native-base';
 
 //-------------------Example of StackNavigator -------------------------//
@@ -30,6 +31,33 @@ import { Button, Text, Icon, Footer, FooterTab } from 'native-base';
        }
     });
 
+    //-------------------Example of TabNavigagion -------------------------//
+
+    export const GalleryScreenTabNav = TabNavigator (
+      {
+          Business: {
+            screen: Business,
+            navigationOptions: {
+              title: 'Business Gallery'
+            }
+          },
+          Sp: {
+              screen: Sports,
+              navigationOptions: {
+                title: 'Sports Gallery'
+              }
+          },
+         Film: {
+           screen: Film,
+           navigationOptions:{
+              title: 'Film Gallery'
+           }
+         }
+
+       
+      });
+
+
   //-------------------Example of DrawerNavigation -------------------------//
 
 export const HomeScreenDrawerNav = DrawerNavigator(
@@ -39,6 +67,9 @@ export const HomeScreenDrawerNav = DrawerNavigator(
             },
         News: {
             screen: NewsScreenStackNav
+        },
+        Gallery: {
+          screen: GalleryScreenTabNav
         }
     },
     {
