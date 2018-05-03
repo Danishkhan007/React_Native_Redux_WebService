@@ -77,13 +77,6 @@ class HomeScreen extends Component {
     );
   }
 
-  // renderGetResult() {
-  //   debugger;
-  //   if (this.props.data != null) {
-  //       this.props.navigation.navigate('News');
-  //   } 
-  // }
-
   //Connectivity listener
   _connectivityListener(isConnected) {
     debugger;

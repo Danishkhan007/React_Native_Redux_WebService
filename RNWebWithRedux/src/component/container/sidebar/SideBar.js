@@ -5,12 +5,12 @@
  */
 
 import React, { Component } from 'react';
-import { Image, Alert } from 'react-native';
+import { Image, Alert, Platform } from 'react-native';
 import { Container, Content, Text, List, ListItem, Button, Label } from 'native-base';
 import DataManager from '../../../datamanager/DataManager';
 import WebService from '../../../services/web_service_handler/WebService';
 
-const routes = ['Home', 'News', 'Gallery', 'About Us'];
+const routes = ['Home', 'News', 'Gallery', 'Setting'];
 export default class SideBar extends Component {
 
   constructor() {
@@ -53,9 +53,8 @@ export default class SideBar extends Component {
               );
             }}
           />
-              debugger;
-             <Button rounded warning >
-             <Text style={styles.logoutButtonSytyle}>LOG OUT</Text>
+             <Button rounded danger style={styles.logoutButtonStyle}>
+              <Text style={styles.logoutTextStyle}>LOG OUT</Text>
             </Button>
       </Container> 
     );
@@ -63,11 +62,21 @@ export default class SideBar extends Component {
 }
 
       const styles = {
-        logoutButtonSytyle: {
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center'   
+        logoutTextStyle: {
+          ...Platform.select({
+            ios: {
+              flex:1
+            }
+          }),        
+             textAlign: 'center'
+        },
+        logoutButtonStyle: {
+          ...Platform.select({
+            android: {
+              flex:1,
+            },
+            height: 80,
+          })
         }
     };
 

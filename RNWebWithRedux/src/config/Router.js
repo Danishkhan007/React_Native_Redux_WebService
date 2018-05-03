@@ -70,7 +70,12 @@ export const HomeScreenDrawerNav = DrawerNavigator(
         },
         Gallery: {
           screen: GalleryScreenTabNav
+        },
+
+        Setting: {
+          screen: HomeScreen
         }
+
     },
     {
       contentComponent: props => <SideBar {...props} />
